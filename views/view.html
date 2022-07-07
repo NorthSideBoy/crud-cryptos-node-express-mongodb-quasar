@@ -367,7 +367,7 @@
         methods: {
           getCryptos()
             {
-               fetch('http://saidcrud.servehttp.com:5565/crypto')
+               fetch('https://crud-express-mongodb-quassar.herokuapp.com/crypto')
                .then(response => response.json())
                .then(cryptoData => {
                  this.cryptosData = cryptoData.data
@@ -413,7 +413,7 @@
             },
           createImage(formData, e)
             {
-              fetch('http://saidcrud.servehttp.com:5565/images', {
+              fetch('https://crud-express-mongodb-quassar.herokuapp.com/images', {
                 method: 'POST',
                 body: formData
               })
@@ -426,7 +426,7 @@
             },
           createCrypto(e)
             {
-              fetch('http://saidcrud.servehttp.com:5565/crypto', {
+              fetch('https://crud-express-mongodb-quassar.herokuapp.com/crypto', {
                 method: 'POST',
                   body: JSON.stringify({
                       name: this.name,
@@ -455,12 +455,12 @@
           deleteCrypto(id, mediaId)
             {
               this.filterText = null
-              fetch('http://saidcrud.servehttp.com:5565/images/' + mediaId)
+              fetch('https://crud-express-mongodb-quassar.herokuapp.com/images/' + mediaId)
                .then(response => response.json())
                .then(data => {
                 this.deleteImage(data.data._id)
                })
-              fetch('http://saidcrud.servehttp.com:5565/crypto/' + id, {
+              fetch('https://crud-express-mongodb-quassar.herokuapp.com/crypto/' + id, {
               method: 'DELETE',
               headers: {
                 'Accept': 'application/json',
@@ -473,7 +473,7 @@
             },
           deleteImage(id)
               {
-                fetch('http://saidcrud.servehttp.com:5565/images/' + id, {
+                fetch('https://crud-express-mongodb-quassar.herokuapp.com/images/' + id, {
               method: 'DELETE',
               headers: {
                 'Accept': 'application/json',
@@ -504,7 +504,7 @@
               },
             updateImageCrypto(formData, mediaId, id, event)
               {
-               fetch('http://saidcrud.servehttp.com:5565/images/' + mediaId, {
+               fetch('https://crud-express-mongodb-quassar.herokuapp.com/images/' + mediaId, {
                 method: 'PUT',
                 body: formData
                })
@@ -515,7 +515,7 @@
               },
             updateCrypto(id, imageResults, event)
               {
-                fetch('http://saidcrud.servehttp.com:5565/crypto/' + id, {
+                fetch('https://crud-express-mongodb-quassar.herokuapp.com/crypto/' + id, {
                   method: 'PUT',
                     body: JSON.stringify({
                       name: this.updateName,
